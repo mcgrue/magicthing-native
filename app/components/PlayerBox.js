@@ -5,19 +5,37 @@ import { Text, View, Button } from "react-native";
 
 import PlayerName from "./PlayerName";
 import LifeTotal from "./LifeTotal";
+import LifeChangeButton from "./LifeChangeButton";
 
 class PlayerBox extends React.Component {
   render() {
-    const self = this;
-    const handleChange = evt => {
-      self.props.updateLifeTotal(self.props.index, -1);
-    };
-
     return (
       <View>
         <PlayerName name={this.props.player.name} />
         <LifeTotal life={this.props.player.life} />
-        <Button title="-1" onPress={handleChange} />
+        <LifeChangeButton
+          amount={-1}
+          updateLifeTotal={this.props.updateLifeTotal}
+          playerKey={this.props.index}
+        />
+
+        <LifeChangeButton
+          amount={-5}
+          updateLifeTotal={this.props.updateLifeTotal}
+          playerKey={this.props.index}
+        />
+
+        <LifeChangeButton
+          amount={+1}
+          updateLifeTotal={this.props.updateLifeTotal}
+          playerKey={this.props.index}
+        />
+
+        <LifeChangeButton
+          amount={+5}
+          updateLifeTotal={this.props.updateLifeTotal}
+          playerKey={this.props.index}
+        />
       </View>
     );
   }
