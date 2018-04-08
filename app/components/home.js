@@ -24,15 +24,13 @@ class Home extends Component {
     }
 
     render() {
-        // if (this.props.loading) {
-        //     return (
-        //         <View style={styles.activityIndicatorContainer}>
-        //             <ActivityIndicator animating={true} />
-        //         </View>
-        //     );
-        // } else {
+        const loadingIndicator = (
+            <View style={styles.activityIndicatorContainer}>
+                <ActivityIndicator animating={true} />
+            </View>
+        );
 
-        return (
+        const mainView = (
             <View
                 style={{
                     flex: 1,
@@ -42,21 +40,18 @@ class Home extends Component {
                     padding: "5%"
                 }}
             >
-                <Text>
-                    BUTTS Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit. Placeat earum expedita ducimus, quam explicabo,
-                    laborum facere illum optio maxime tenetur quisquam amet
-                    magnam sed in porro quia asperiores eum reiciendis?
-                </Text>
+                <Text>LIFE COUNTING!</Text>
 
                 <PlayerBox name="Nacho" life={17} />
+                <PlayerBox name="Taco" life={20} />
             </View>
         );
 
-        //
-        // <PlayerBox name="Taco" life={20} />
-
-        // }
+        if (this.props.loading) {
+            return loadingIndicator;
+        } else {
+            return mainView;
+        }
     }
 }
 
