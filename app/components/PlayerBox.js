@@ -5,7 +5,7 @@ import { Text, View, Button } from "react-native";
 
 import PlayerName from "./PlayerName";
 import LifeTotal from "./LifeTotal";
-import LifeChangeButton from "./LifeChangeButton";
+import LifeButtonBox from "./LifeButtonBox";
 
 class PlayerBox extends React.Component {
   render() {
@@ -13,26 +13,7 @@ class PlayerBox extends React.Component {
       <View>
         <PlayerName name={this.props.player.name} />
         <LifeTotal life={this.props.player.life} />
-        <LifeChangeButton
-          amount={-1}
-          updateLifeTotal={this.props.updateLifeTotal}
-          playerKey={this.props.index}
-        />
-
-        <LifeChangeButton
-          amount={-5}
-          updateLifeTotal={this.props.updateLifeTotal}
-          playerKey={this.props.index}
-        />
-
-        <LifeChangeButton
-          amount={+1}
-          updateLifeTotal={this.props.updateLifeTotal}
-          playerKey={this.props.index}
-        />
-
-        <LifeChangeButton
-          amount={+5}
+        <LifeButtonBox
           updateLifeTotal={this.props.updateLifeTotal}
           playerKey={this.props.index}
         />
