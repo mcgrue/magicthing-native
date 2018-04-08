@@ -17,7 +17,7 @@ class Home extends Component {
         this.state = {
             players: {
                 "player-1": {
-                    name: "Nacho",
+                    name: "Nacho3",
                     life: 20
                 },
                 "player-2": {
@@ -33,6 +33,14 @@ class Home extends Component {
     componentDidMount() {
         this.props.getData(); //call our action
     }
+
+    updateLifeTotal = (playerKey, lifeDelta) => {
+        const players = { ...this.state.players };
+
+        players[playerKey].life += lifeDelta;
+
+        this.setState({ players });
+    };
 
     render() {
         const loadingIndicator = (
@@ -54,7 +62,12 @@ class Home extends Component {
                 <Text>LIFE COUNTING!</Text>
 
                 {Object.keys(this.state.players).map(key => (
-                    <PlayerBox key={key} player={this.state.players[key]} />
+                    <PlayerBox
+                        key={key}
+                        index={key}
+                        player={this.state.players[key]}
+                        updateLifeTotal={this.updateLifeTotal}
+                    />
                 ))}
             </View>
         );
