@@ -9,15 +9,14 @@ import LifeTotal from "./LifeTotal";
 const PlayerBox = props => {
   return (
     <View>
-      <PlayerName name={props.name} />
-      <LifeTotal life={props.life} />
+      <PlayerName name={props.player.name} />
+      <LifeTotal life={props.player.life} />
     </View>
   );
 };
 
 PlayerBox.propTypes = {
-  name: PropTypes.string.isRequired,
-  life: PropTypes.number.isRequired
+  player: PropTypes.object.isRequired
 };
 
 export default PlayerBox;

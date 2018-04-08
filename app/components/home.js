@@ -14,7 +14,18 @@ class Home extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            players: {
+                "player-1": {
+                    name: "Nacho",
+                    life: 20
+                },
+                "player-2": {
+                    name: "Taco",
+                    life: 20
+                }
+            }
+        };
 
         // this.renderItem = this.renderItem.bind(this);
     }
@@ -42,8 +53,9 @@ class Home extends Component {
             >
                 <Text>LIFE COUNTING!</Text>
 
-                <PlayerBox name="Nacho" life={17} />
-                <PlayerBox name="Taco" life={20} />
+                {Object.keys(this.state.players).map(key => (
+                    <PlayerBox key={key} player={this.state.players[key]} />
+                ))}
             </View>
         );
 
