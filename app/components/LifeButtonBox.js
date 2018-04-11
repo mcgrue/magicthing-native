@@ -8,30 +8,49 @@ import LifeChangeButton from "./LifeChangeButton";
 class LifeButtonBox extends React.Component {
   render() {
     return (
-      <View>
-        <LifeChangeButton
-          amount={-1}
-          updateLifeTotal={this.props.updateLifeTotal}
-          playerKey={this.props.playerKey}
-        />
+      <View
+        style={{
+          flex: 1,
+          flexDirection: "row",
+          justifyContent: "center",
+          flexGrow: 1
+        }}
+      >
+        <View
+          style={{
+            flexGrow: 1
+          }}
+        >
+          <LifeChangeButton
+            amount={-1}
+            updateLifeTotal={this.props.updateLifeTotal}
+            playerKey={this.props.playerKey}
+          />
 
-        <LifeChangeButton
-          amount={-5}
-          updateLifeTotal={this.props.updateLifeTotal}
-          playerKey={this.props.playerKey}
-        />
+          <LifeChangeButton
+            amount={-5}
+            updateLifeTotal={this.props.updateLifeTotal}
+            playerKey={this.props.playerKey}
+          />
+        </View>
 
-        <LifeChangeButton
-          amount={+1}
-          updateLifeTotal={this.props.updateLifeTotal}
-          playerKey={this.props.playerKey}
-        />
+        <View
+          style={{
+            flexGrow: 1
+          }}
+        >
+          <LifeChangeButton
+            amount={+1}
+            updateLifeTotal={this.props.updateLifeTotal}
+            playerKey={this.props.playerKey}
+          />
 
-        <LifeChangeButton
-          amount={+5}
-          updateLifeTotal={this.props.updateLifeTotal}
-          playerKey={this.props.playerKey}
-        />
+          <LifeChangeButton
+            amount={+5}
+            updateLifeTotal={this.props.updateLifeTotal}
+            playerKey={this.props.playerKey}
+          />
+        </View>
       </View>
     );
   }

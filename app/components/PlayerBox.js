@@ -10,7 +10,14 @@ import LifeButtonBox from "./LifeButtonBox";
 class PlayerBox extends React.Component {
   render() {
     return (
-      <View>
+      <View
+        style={{
+          width: "80%",
+          flex: 1,
+          border: "1px solid grey",
+          justifyContent: "center"
+        }}
+      >
         <PlayerName name={this.props.player.name} />
         <LifeTotal life={this.props.player.life} />
         <LifeButtonBox

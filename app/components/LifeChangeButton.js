@@ -14,7 +14,13 @@ class LifeChangeButton extends React.Component {
     const amt = this.props.amount;
     const title = "" + (amt >= 0 ? "+" + amt : amt);
 
-    return <Button title={title} onPress={this.handleChange} />;
+    return (
+      <Button
+        style={{ flex: 0.45 }}
+        title={title}
+        onPress={this.handleChange}
+      />
+    );
   }
 }
 
