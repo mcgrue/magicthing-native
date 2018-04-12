@@ -12,18 +12,33 @@ class PlayerBox extends React.Component {
     return (
       <View
         style={{
-          width: "80%",
+          width: "100%",
           flex: 1,
-          border: "1px solid grey",
+          flexDirection: "row",
+          borderWidth: 1,
+          borderStyle: "solid",
+          borderColor: "grey",
           justifyContent: "center"
         }}
       >
-        <PlayerName name={this.props.player.name} />
-        <LifeTotal life={this.props.player.life} />
-        <LifeButtonBox
-          updateLifeTotal={this.props.updateLifeTotal}
-          playerKey={this.props.index}
-        />
+        <View
+          style={{
+            width: "50%",
+            flex: 2,
+            justifyContent: "space-between"
+          }}
+        >
+          <PlayerName name={this.props.player.name} />
+          <LifeTotal life={this.props.player.life} />
+          <LifeButtonBox
+            updateLifeTotal={this.props.updateLifeTotal}
+            playerKey={this.props.index}
+          />
+        </View>
+
+        <View style={{ width: "50%", height: "100%", backgroundColor: "blue" }}>
+          <Text>Ledger</Text>
+        </View>
       </View>
     );
   }

@@ -10,7 +10,7 @@ class LifeButtonBox extends React.Component {
     return (
       <View
         style={{
-          flex: 1,
+          flex: 2,
           flexDirection: "row",
           justifyContent: "center",
           flexGrow: 1
@@ -25,12 +25,14 @@ class LifeButtonBox extends React.Component {
             amount={-1}
             updateLifeTotal={this.props.updateLifeTotal}
             playerKey={this.props.playerKey}
+            position="topLeft"
           />
 
           <LifeChangeButton
             amount={-5}
             updateLifeTotal={this.props.updateLifeTotal}
             playerKey={this.props.playerKey}
+            position="bottomLeft"
           />
         </View>
 
@@ -43,12 +45,14 @@ class LifeButtonBox extends React.Component {
             amount={+1}
             updateLifeTotal={this.props.updateLifeTotal}
             playerKey={this.props.playerKey}
+            position="topRight"
           />
 
           <LifeChangeButton
             amount={+5}
             updateLifeTotal={this.props.updateLifeTotal}
             playerKey={this.props.playerKey}
+            position="bottomRight"
           />
         </View>
       </View>
