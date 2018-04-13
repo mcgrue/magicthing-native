@@ -37,7 +37,7 @@ class PlayerBox extends React.Component {
           />
         </View>
 
-        <View style={{ width: "50%", height: "100%" }}>
+        <View style={{ width: "35%", height: "100%", padding: 4 }}>
           <Ledger ledger={this.props.player.ledger} />
         </View>
       </View>

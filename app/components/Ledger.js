@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 import { Text, View } from "react-native";
 
+const borderColor = "#DDDDDD";
+
 const foo = (total, delta, timestamp) => {
   const key = "entry-" + timestamp;
 
@@ -12,14 +14,19 @@ const foo = (total, delta, timestamp) => {
         width: "100%",
         justifyContent: "center",
         flexDirection: "row",
-        overflow: "scroll"
+        overflow: "scroll",
+        padding: 2
       }}
       key={key}
     >
       <View
         style={{
           width: "50%",
-          borderColor: "#DDDDDD",
+
+          borderTopColor: "transparent",
+          borderBottomColor: borderColor,
+          borderLeftColor: "transparent",
+          borderRightColor: borderColor,
           borderWidth: 1,
           borderStyle: "solid",
           flex: 0.5
@@ -31,7 +38,11 @@ const foo = (total, delta, timestamp) => {
       <View
         style={{
           width: "50%",
-          borderColor: "#DDDDDD",
+
+          borderTopColor: "transparent",
+          borderBottomColor: borderColor,
+          borderLeftColor: "transparent",
+          borderRightColor: "transparent",
           borderWidth: 1,
           borderStyle: "solid",
           flex: 0.5
