@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 
 import { Text, View, Button } from "react-native";
 
-import PlayerName from "./PlayerName";
-import LifeTotal from "./LifeTotal";
+import Ledger from "./Ledger";
 import LifeButtonBox from "./LifeButtonBox";
+import LifeTotal from "./LifeTotal";
+import PlayerName from "./PlayerName";
 
 class PlayerBox extends React.Component {
   render() {
@@ -36,8 +37,8 @@ class PlayerBox extends React.Component {
           />
         </View>
 
-        <View style={{ width: "50%", height: "100%", backgroundColor: "blue" }}>
-          <Text>Ledger</Text>
+        <View style={{ width: "50%", height: "100%" }}>
+          <Ledger ledger={this.props.player.ledger} />
         </View>
       </View>
     );

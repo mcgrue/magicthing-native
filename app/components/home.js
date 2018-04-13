@@ -10,6 +10,8 @@ import PlayerBox from "./PlayerBox";
 
 import * as Actions from "../actions"; //Import your actions
 
+const UPDATE_TIMEOUT_IN_MS = 1000;
+
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -18,11 +20,15 @@ class Home extends Component {
             players: {
                 "player-1": {
                     name: "Nacho3",
-                    life: 20
+                    life: 20,
+                    lastUpdate: 0,
+                    ledger: []
                 },
                 "player-2": {
                     name: "Taco",
-                    life: 20
+                    life: 20,
+                    lastUpdate: 0,
+                    ledger: []
                 }
             }
         };
@@ -36,8 +42,16 @@ class Home extends Component {
 
     updateLifeTotal = (playerKey, lifeDelta) => {
         const players = { ...this.state.players };
+        const ledger = players[playerKey].ledger;
 
         players[playerKey].life += lifeDelta;
+        players[playerKey].lastUpdate = new Date().getTime();
+
+        players[playerKey].ledger.push({
+            timestamp: players[playerKey].lastUpdate,
+            delta: lifeDelta,
+            total: players[playerKey].life
+        });
 
         this.setState({ players });
     };
