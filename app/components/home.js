@@ -42,6 +42,12 @@ class Home extends Component {
         this.props.getData(); //call our action
     }
 
+    updatePlayerName = (playerKey, newName) => {
+        const players = { ...this.state.players };
+        players[playerKey].name = newName;
+        this.setState({ players });
+    };
+
     updateLifeTotal = (playerKey, lifeDelta) => {
         const players = { ...this.state.players };
         const ledger = players[playerKey].ledger;
@@ -94,6 +100,7 @@ class Home extends Component {
                         index={key}
                         player={this.state.players[key]}
                         updateLifeTotal={this.updateLifeTotal}
+                        updatePlayerName={this.updatePlayerName}
                     />
                 ))}
             </View>

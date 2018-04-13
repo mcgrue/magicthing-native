@@ -29,7 +29,11 @@ class PlayerBox extends React.Component {
             justifyContent: "space-between"
           }}
         >
-          <PlayerName name={this.props.player.name} />
+          <PlayerName
+            name={this.props.player.name}
+            updatePlayerName={this.props.updatePlayerName}
+            playerKey={this.props.index}
+          />
           <LifeTotal life={this.props.player.life} />
           <LifeButtonBox
             updateLifeTotal={this.props.updateLifeTotal}
