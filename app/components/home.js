@@ -12,6 +12,8 @@ import * as Actions from "../actions"; //Import your actions
 
 const UPDATE_TIMEOUT_IN_MS = 1000;
 
+console.disableYellowBox = true;
+
 class Home extends Component {
     constructor(props) {
         super(props);

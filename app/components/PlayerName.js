@@ -3,9 +3,15 @@ import PropTypes from "prop-types";
 
 import { Text } from "react-native";
 
-const PlayerName = props => (
-  <Text style={{ fontSize: 28, textAlign: "center" }}>{props.name}</Text>
-);
+class PlayerName extends React.Component {
+  render() {
+    return (
+      <Text style={{ fontSize: 28, textAlign: "center" }}>
+        {this.props.name}
+      </Text>
+    );
+  }
+}
 
 PlayerName.propTypes = {
   name: PropTypes.string.isRequired
