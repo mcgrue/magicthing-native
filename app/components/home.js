@@ -1,7 +1,13 @@
 "use strict";
 
 import React, { Component } from "react";
-import { StyleSheet, View, ActivityIndicator, Text } from "react-native";
+import {
+    ActivityIndicator,
+    Button,
+    StyleSheet,
+    Text,
+    View
+} from "react-native";
 
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -14,32 +20,39 @@ const UPDATE_TIMEOUT_IN_MS = 1000;
 
 console.disableYellowBox = true;
 
+const cleanState = () => {
+    return {
+        players: {
+            "player-1": {
+                name: "Player 1",
+                life: 20,
+                lastUpdate: 0,
+                ledger: []
+            },
+            "player-2": {
+                name: "Player 2",
+                life: 20,
+                lastUpdate: 0,
+                ledger: []
+            }
+        }
+    };
+};
+
 class Home extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            players: {
-                "player-1": {
-                    name: "Nacho3",
-                    life: 20,
-                    lastUpdate: 0,
-                    ledger: []
-                },
-                "player-2": {
-                    name: "Taco",
-                    life: 20,
-                    lastUpdate: 0,
-                    ledger: []
-                }
-            }
-        };
-
-        // this.renderItem = this.renderItem.bind(this);
+        this.state = cleanState();
     }
 
     componentDidMount() {
         this.props.getData(); //call our action
+    }
+
+    resetGame() {
+        console.log("resetting game!");
+        this.setState(Object.assign({}, cleanState()));
     }
 
     updatePlayerName = (playerKey, newName) => {
@@ -103,6 +116,8 @@ class Home extends Component {
                         updatePlayerName={this.updatePlayerName}
                     />
                 ))}
+
+                <Button title="New Game" onPress={() => this.resetGame()} />
             </View>
         );
 
