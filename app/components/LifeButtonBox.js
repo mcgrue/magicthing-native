@@ -22,14 +22,14 @@ class LifeButtonBox extends React.Component {
           }}
         >
           <LifeChangeButton
-            amount={-1}
+            amount={+1}
             updateLifeTotal={this.props.updateLifeTotal}
             playerKey={this.props.playerKey}
             position="topLeft"
           />
 
           <LifeChangeButton
-            amount={-5}
+            amount={-1}
             updateLifeTotal={this.props.updateLifeTotal}
             playerKey={this.props.playerKey}
             position="bottomLeft"
@@ -42,14 +42,14 @@ class LifeButtonBox extends React.Component {
           }}
         >
           <LifeChangeButton
-            amount={+1}
+            amount={+5}
             updateLifeTotal={this.props.updateLifeTotal}
             playerKey={this.props.playerKey}
             position="topRight"
           />
 
           <LifeChangeButton
-            amount={+5}
+            amount={-5}
             updateLifeTotal={this.props.updateLifeTotal}
             playerKey={this.props.playerKey}
             position="bottomRight"

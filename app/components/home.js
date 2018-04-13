@@ -86,7 +86,7 @@ class Home extends Component {
                     padding: "5%"
                 }}
             >
-                <Text>LIFE COUNTING!</Text>
+                <Text>Tome of Life!</Text>
 
                 {Object.keys(this.state.players).map(key => (
                     <PlayerBox
