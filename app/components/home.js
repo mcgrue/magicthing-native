@@ -44,14 +44,25 @@ class Home extends Component {
         const players = { ...this.state.players };
         const ledger = players[playerKey].ledger;
 
-        players[playerKey].life += lifeDelta;
-        players[playerKey].lastUpdate = new Date().getTime();
+        const mostRecentUpdate = players[playerKey].lastUpdate;
+        const now = new Date().getTime();
 
-        players[playerKey].ledger.push({
-            timestamp: players[playerKey].lastUpdate,
-            delta: lifeDelta,
-            total: players[playerKey].life
-        });
+        players[playerKey].life += lifeDelta;
+        players[playerKey].lastUpdate = now;
+
+        if (!now || now > mostRecentUpdate + UPDATE_TIMEOUT_IN_MS) {
+            players[playerKey].ledger.push({
+                timestamp: players[playerKey].lastUpdate,
+                delta: lifeDelta,
+                total: players[playerKey].life
+            });
+        } else {
+            const lastIdx = players[playerKey].ledger.length - 1;
+
+            players[playerKey].ledger[lastIdx].delta += lifeDelta;
+            players[playerKey].ledger[lastIdx].total = players[playerKey].life;
+            players[playerKey].ledger[lastIdx].lastUpdate = now;
+        }
 
         this.setState({ players });
     };

@@ -56,7 +56,8 @@ const foo = (total, delta, timestamp) => {
 
 class Ledger extends React.Component {
   render() {
-    const reverseTally = this.props.ledger.reverse();
+    const tallyClone = this.props.ledger.slice(0);
+    const reverseTally = tallyClone.reverse();
 
     return (
       <ScrollView style={{ width: "100%" }}>
