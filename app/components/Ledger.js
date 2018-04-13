@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { Text, View } from "react-native";
+import { Text, View, ScrollView } from "react-native";
 
 const borderColor = "#DDDDDD";
 
@@ -56,12 +56,14 @@ const foo = (total, delta, timestamp) => {
 
 class Ledger extends React.Component {
   render() {
+    const reverseTally = this.props.ledger.reverse();
+
     return (
-      <View style={{ width: "100%" }}>
-        {this.props.ledger.map((item, index) => {
+      <ScrollView style={{ width: "100%" }}>
+        {reverseTally.map((item, index) => {
           return foo(item.total, item.delta, item.timestamp);
         })}
-      </View>
+      </ScrollView>
     );
   }
 }
