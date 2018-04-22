@@ -12,7 +12,7 @@ import {
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import LifeCounter from "../screens/LifeCounter";
+import LifeCounter from "./screens/LifeCounter";
 
 import * as Actions from "../actions"; //Import your actions
 
@@ -22,6 +22,7 @@ console.disableYellowBox = true;
 
 const cleanState = () => {
     return {
+        loggedIn: false,
         players: {
             "player-1": {
                 name: "Butts",
