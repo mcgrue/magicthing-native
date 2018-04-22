@@ -12,7 +12,8 @@ import {
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import LifeCounter from "./screens/LifeCounter";
+import LifeCounter from "./LifeCounter";
+import Welcome from "./Welcome";
 
 import * as Actions from "../actions"; //Import your actions
 
@@ -107,7 +108,7 @@ class Home extends Component {
                 }}
             >
                 <Text>Tome of Life!</Text>
-
+                <Welcome />
                 <LifeCounter
                     updateLifeTotal={this.updateLifeTotal}
                     updatePlayerName={this.updatePlayerName}
