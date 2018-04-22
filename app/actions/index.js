@@ -1,7 +1,11 @@
 export const DATA_AVAILABLE = "DATA_AVAILABLE";
 
 //Import the sample data
-import Data from "../instructions.json";
+// import Data from "../instructions.json";
+
+const Data = {
+  instructions: "there are no instructions."
+};
 
 export function getData() {
   return dispatch => {

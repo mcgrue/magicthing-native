@@ -12,7 +12,7 @@ import {
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import LifeCounter from "../screens/LifeCounter";
+import PlayerBox from "./../components/PlayerBox";
 
 import * as Actions from "../actions"; //Import your actions
 
@@ -24,7 +24,7 @@ const cleanState = () => {
     return {
         players: {
             "player-1": {
-                name: "Butts",
+                name: "Player 1",
                 life: 20,
                 lastUpdate: 0,
                 ledger: []
@@ -105,12 +105,17 @@ class Home extends Component {
                     padding: "5%"
                 }}
             >
-                <Text>Tome of Life!</Text>
+                {Object.keys(this.state.players).map(key => (
+                    <PlayerBox
+                        key={key}
+                        index={key}
+                        player={this.state.players[key]}
+                        updateLifeTotal={this.updateLifeTotal}
+                        updatePlayerName={this.updatePlayerName}
+                    />
+                ))}
 
-                <LifeCounter
-                    updateLifeTotal={this.updateLifeTotal}
-                    updatePlayerName={this.updatePlayerName}
-                />
+                <Button title="New Game" onPress={() => this.resetGame()} />
             </View>
         );
 
